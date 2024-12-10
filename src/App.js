@@ -1,6 +1,6 @@
 import "./App.css";
 import background from "./background.webp";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import html2canvas from "html2canvas"; // Import html2canvas
 
 // Import all images from the /images folder
@@ -13,20 +13,11 @@ function App() {
   const [currentImage, setCurrentImage] = useState(images[0]); // Set initial image
   const [editableText, setEditableText] = useState(""); // Initial text
   const [imageHistory, setImageHistory] = useState([]); // Track shown images
-  const [loading, setLoading] = useState(true); // Loading state
-
-  useEffect(() => {
-    // Simulate loading assets
-    const loadImages = async () => {
-      // Simulate a delay for loading
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setLoading(false); // Set loading to false after images are loaded
-    };
-
-    loadImages();
-  }, []);
+  const [loading, setLoading] = useState(false); // Loading state
 
   const handleSpinClick = () => {
+    setLoading(true); // Set loading to true when the button is clicked
+
     if (imageHistory.length === images.length) {
       // Reset history if all images have been shown
       setImageHistory([]);
@@ -37,8 +28,12 @@ function App() {
       randomIndex = Math.floor(Math.random() * images.length);
     } while (imageHistory.includes(randomIndex)); // Ensure the image hasn't been shown
 
-    setCurrentImage(images[randomIndex]); // Change to a random image
-    setImageHistory((prev) => [...prev, randomIndex]); // Add to history
+    // Simulate a delay for loading the new image
+    setTimeout(() => {
+      setCurrentImage(images[randomIndex]); // Change to a random image
+      setImageHistory((prev) => [...prev, randomIndex]); // Add to history
+      setLoading(false); // Set loading to false after the image is set
+    }, 1000); // Adjust the delay as needed
   };
 
   const handleHomeClick = () => {
@@ -104,7 +99,7 @@ function App() {
       >
         <img src={background} alt="background" className="background-image" />
         <img src={currentImage} alt="random" className="random-image" />
-        <div>{editableText}</div>
+        <div className="editable-textarea">{editableText}</div>
       </div>
     </div>
   );

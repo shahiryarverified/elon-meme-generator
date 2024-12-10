@@ -1,0 +1,228 @@
+/* Add this to App.css */
+body {
+  margin: 0; /* Remove default margin */
+  overflow: hidden; /* Prevent scroll bars from appearing */
+}
+
+.background-container {
+  position: relative;
+  display: flex; /* Use Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100vw;
+  height: 100vh; /* Full size of the viewport */
+}
+
+.background-container-inner {
+  width: 100vw;
+  height: auto; 
+}
+
+.background-image {
+  width: 100vw;
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Prevent bottom space */
+}
+
+.top-left-button {
+  position: absolute;
+  margin-top: -43%;
+  margin-left: 4%;
+  z-index: 1; /* Ensure it appears above the image */
+  background-image: url('./Home1.png'); /* Normal state */
+  background-size: contain; /* Maintain aspect ratio */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-color: transparent; /* Remove white background */
+  border: none; /* Remove default border */
+  width: 16%; /* Set width as needed */
+  height: 12%; /* Set height as needed */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.top-left-button:hover {
+  background-image: url('./Home2.png'); /* Hover state */
+}
+
+.top-left-button:active {
+  background-image: url('./Home3.png'); /* Clicked state */
+}
+
+.top-right-button {
+  position: absolute;
+  margin-top: -38.5%;
+  margin-left: 86%;
+  z-index: 1; /* Ensure it appears above the image */
+  background-image: url('./Twitter1.png'); /* Normal state */
+  background-size: contain; /* Maintain aspect ratio */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-color: transparent; /* Remove white background */
+  border: none; /* Remove default border */
+  width: 16%; /* Set width as needed */
+  height: 8%; /* Set height as needed */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.top-right-button:hover {
+  background-image: url('./Twitter2.png'); /* Hover state */
+}
+
+.top-right-button:active {
+  background-image: url('./Twitter3.png'); /* Clicked state */
+}
+
+.spin-button {
+  position: absolute;
+  margin-top: -10%;
+  margin-left: 38%;
+  z-index: 1; /* Ensure it appears above the image */
+  background-image: url('./Spin1.png'); /* Normal state */
+  background-size: contain; /* Maintain aspect ratio */
+  background-repeat: no-repeat; /* Prevent repeating */
+  background-color: transparent; /* Remove white background */
+  border: none; /* Remove default border */
+  width: 16%; /* Set width as needed */
+  height: 12%; /* Set height as needed */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.spin-button:hover {
+  background-image: url('./Spin2.png'); /* Hover state */
+}
+
+.spin-button:active {
+  background-image: url('./Spin3.png'); /* Clicked state */
+}
+
+.random-image {
+  width: 27%; /* Set the desired width */
+  height: 27%; /* Set the desired height */
+  object-fit: contain; /* Maintain aspect ratio and cover the area */
+  position: absolute; /* Ensure it can be positioned with margins */
+  margin-top: -48%;
+  margin-left: 31%;
+  z-index: 2;
+}
+
+.editable-textarea {
+  position: absolute; /* Absolute positioning */
+  margin-top: -45%; /* Top margin */
+  margin-left: 75%; /* Left margin */
+  z-index: 1; /* Ensure it appears above other elements */
+  padding: 10px; /* Add some padding for better appearance */
+  font-size: 16px; /* Set font size */
+  border: 0px solid #ccc; /* Add a border */
+  resize: none;
+  height: 14vh;
+  width: 15vw; 
+  background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent background */
+}
+
+/* Media query for responsiveness */
+@media (min-width: 1600px) {
+  .editable-textarea {
+    margin-top: -45%;
+    width: 15vw; /* Adjust width for larger screens */
+    font-size: 16px; /* Font size for larger screens */
+  }
+}
+
+@media (max-width: 1599px) and (min-width: 1200px) {
+  .editable-textarea {
+    margin-top: -46%;
+    width: 15vw; /* Adjust width for medium screens */
+    font-size: 14px; /* Slightly smaller font size */
+  }
+  .random-image {
+    margin-top: -48%;
+    margin-left: 32%;
+    width: 24%; /* Adjust width for larger screens */
+    height: 24%; /* Adjust height for larger screens */
+  }
+}
+
+@media (max-width: 1400px)
+{
+  .random-image {
+    margin-top: -48%;
+    margin-left: 34%;
+    width: 21%; /* Adjust width for larger screens */
+    height: 21%; /* Adjust height for larger screens */
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 800px) {
+  .editable-textarea {
+    margin-top: -47%;
+    width: 15vw; /* Adjust width for smaller screens */
+    font-size: 12px; /* Smaller font size */
+  }
+  .random-image {
+    margin-top: -48%;
+    margin-left: 37%;
+    width: 16%; /* Adjust width for larger screens */
+    height: 16%; /* Adjust height for larger screens */
+  }
+}
+
+@media (max-width: 1000px) {
+  .editable-textarea {
+    margin-top: -47%;
+    height: 10vh;
+    width: 17vw; /* Full width for mobile screens */
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+}
+
+@media (max-width: 799px) {
+  .editable-textarea {
+    margin-top: -47.5%;
+    height: 9vh;
+    width: 16vw; /* Full width for mobile screens */
+    font-size: 9px; /* Smaller font size for mobile */
+  }
+  .random-image {
+    margin-top: -48%;
+    margin-left: 39%;
+    width: 13%; /* Adjust width for larger screens */
+    height: 13%; /* Adjust height for larger screens */
+  }
+}
+
+@media (max-width: 700px) {
+  .editable-textarea {
+    margin-top: -47.5%;
+    height: 9vh;
+    width: 16vw; /* Full width for mobile screens */
+    font-size: 7.5px; /* Smaller font size for mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .editable-textarea {
+    margin-top: -47.5%;
+    height: 9vh;
+    width: 16vw; /* Full width for mobile screens */
+    font-size: 6px; /* Smaller font size for mobile */
+  }
+  .random-image {
+    margin-top: -51%;
+    margin-left: 39%;
+    width: 12%; /* Adjust width for larger screens */
+    height: 12%; /* Adjust height for larger screens */
+  }
+}
+
+@media (max-width: 500px) {
+  .editable-textarea {
+    margin-top: -48.5%;
+    height: 4vh;
+    width: 16vw; /* Full width for mobile screens */
+    font-size: 5px; /* Smaller font size for mobile */
+  }
+  .random-image {
+    margin-top: -54%;
+    margin-left: 39%;
+    width: 12%; /* Adjust width for larger screens */
+    height: 12%; /* Adjust height for larger screens */
+  }
+}

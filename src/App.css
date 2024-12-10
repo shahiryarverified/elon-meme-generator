@@ -49,8 +49,8 @@ body {
 
 .top-right-button {
   position: absolute;
-  margin-top: -38.5%;
-  margin-left: 86%;
+  margin-top: -36.5%;
+  margin-left: 82%;
   z-index: 1; /* Ensure it appears above the image */
   background-image: url('./Twitter1.png'); /* Normal state */
   background-size: contain; /* Maintain aspect ratio */
@@ -58,7 +58,7 @@ body {
   background-color: transparent; /* Remove white background */
   border: none; /* Remove default border */
   width: 16%; /* Set width as needed */
-  height: 8%; /* Set height as needed */
+  height: 12%; /* Set height as needed */
   cursor: pointer; /* Change cursor on hover */
 }
 
@@ -112,25 +112,30 @@ body {
   font-size: 16px; /* Set font size */
   border: 0px solid #ccc; /* Add a border */
   resize: none;
-  height: 14vh;
-  width: 15vw; 
-  background-color: rgba(255, 255, 255, 0.5); /* Slightly transparent background */
+  height: 16vh;
+  width: 17vw;
+  font-family: 'Impacted', sans-serif;
+  border-radius: 5px; 
+  background-color: rgba(255, 255, 255, 0); /* Slightly transparent background */
 }
 
 /* Media query for responsiveness */
 @media (min-width: 1600px) {
   .editable-textarea {
     margin-top: -45%;
-    width: 15vw; /* Adjust width for larger screens */
-    font-size: 20px; /* Font size for larger screens */
+    margin-left: 70%;
+    height: 18vh;
+    width: 25vw; /* Adjust width for larger screens */
+    font-size: 36px; /* Font size for larger screens */
   }
 }
 
 @media (max-width: 1599px) and (min-width: 1200px) {
   .editable-textarea {
     margin-top: -46%;
-    width: 15vw; /* Adjust width for medium screens */
-    font-size: 14px; /* Slightly smaller font size */
+    margin-left: 70%;
+    width: 23vw; /* Adjust width for medium screens */
+    font-size: 32px; /* Slightly smaller font size */
   }
   .random-image {
     margin-top: -48%;
@@ -153,8 +158,9 @@ body {
 @media (max-width: 1199px) and (min-width: 800px) {
   .editable-textarea {
     margin-top: -47%;
-    width: 15vw; /* Adjust width for smaller screens */
-    font-size: 12px; /* Smaller font size */
+    margin-left: 70%;
+    width: 24vw; /* Adjust width for smaller screens */
+    font-size: 34px; /* Smaller font size */
   }
   .random-image {
     margin-top: -48%;
@@ -167,18 +173,20 @@ body {
 @media (max-width: 1000px) {
   .editable-textarea {
     margin-top: -47%;
-    height: 10vh;
-    width: 17vw; /* Full width for mobile screens */
-    font-size: 10px; /* Smaller font size for mobile */
+    margin-left: 70%;
+    height: 14vh;
+    width: 23vw; /* Full width for mobile screens */
+    font-size: 26px; /* Smaller font size for mobile */
   }
 }
 
 @media (max-width: 799px) {
   .editable-textarea {
     margin-top: -47.5%;
+    margin-left: 70%;
     height: 9vh;
-    width: 16vw; /* Full width for mobile screens */
-    font-size: 9px; /* Smaller font size for mobile */
+    width: 23vw; /* Full width for mobile screens */
+    font-size: 25px; /* Smaller font size for mobile */
   }
   .random-image {
     margin-top: -48%;
@@ -191,18 +199,20 @@ body {
 @media (max-width: 700px) {
   .editable-textarea {
     margin-top: -47.5%;
+    margin-left: 70%;
     height: 9vh;
-    width: 16vw; /* Full width for mobile screens */
-    font-size: 7.5px; /* Smaller font size for mobile */
+    width: 23vw; /* Full width for mobile screens */
+    font-size: 23.5px; /* Smaller font size for mobile */
   }
 }
 
 @media (max-width: 600px) {
   .editable-textarea {
     margin-top: -47.5%;
+    margin-left: 70%;
     height: 9vh;
-    width: 16vw; /* Full width for mobile screens */
-    font-size: 6px; /* Smaller font size for mobile */
+    width: 23vw; /* Full width for mobile screens */
+    font-size: 22px; /* Smaller font size for mobile */
   }
   .random-image {
     margin-top: -51%;
@@ -215,9 +225,10 @@ body {
 @media (max-width: 500px) {
   .editable-textarea {
     margin-top: -48.5%;
-    height: 4vh;
-    width: 16vw; /* Full width for mobile screens */
-    font-size: 5px; /* Smaller font size for mobile */
+    margin-left: 70%;
+    height: 8vh;
+    width: 23vw; /* Full width for mobile screens */
+    font-size: 21px; /* Smaller font size for mobile */
   }
   .random-image {
     margin-top: -54%;
@@ -244,4 +255,11 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@font-face {
+  font-family: 'Impacted';
+  src: url('./fonts/Impacted.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
 }

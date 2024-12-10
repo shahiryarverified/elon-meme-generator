@@ -98,7 +98,12 @@ function App() {
         }}
       >
         <img src={background} alt="background" className="background-image" />
-        <img src={currentImage} alt="random" className="random-image" />
+        <img
+          src={currentImage}
+          alt="random"
+          className="random-image"
+          style={{ marginTop: "-42%" }}
+        />
         <div className="editable-textarea">{editableText}</div>
       </div>
     </div>

@@ -55,7 +55,7 @@ function App() {
       // Prepare to share on Twitter
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         editableText
-      )}&url=${encodeURIComponent("YOUR_IMAGE_UPLOAD_URL")}`;
+      )}`;
 
       // Open the Twitter share URL in a new window
       window.open(twitterUrl, "_blank");

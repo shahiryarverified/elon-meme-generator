@@ -1,10 +1,10 @@
 import "./App.css";
 import background from "./background.webp";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import html2canvas from "html2canvas"; // Import html2canvas
 
 // Import all images from the /images folder
-const imageCount = 10; // Adjust this based on the number of images you have
+const imageCount = 46; // Adjust this based on the number of images you have
 const images = Array.from({ length: imageCount }, (_, index) =>
   require(`./images/${index + 1}.webp`)
 );
@@ -13,6 +13,18 @@ function App() {
   const [currentImage, setCurrentImage] = useState(images[0]); // Set initial image
   const [editableText, setEditableText] = useState(""); // Initial text
   const [imageHistory, setImageHistory] = useState([]); // Track shown images
+  const [loading, setLoading] = useState(true); // Loading state
+
+  useEffect(() => {
+    // Simulate loading assets
+    const loadImages = async () => {
+      // Simulate a delay for loading
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      setLoading(false); // Set loading to false after images are loaded
+    };
+
+    loadImages();
+  }, []);
 
   const handleSpinClick = () => {
     if (imageHistory.length === images.length) {
@@ -46,10 +58,9 @@ function App() {
       link.click(); // Trigger the download
 
       // Prepare to share on Twitter
-      // Note: You need to upload the image to a hosting service to get a valid URL
       const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
         editableText
-      )}`;
+      )}&url=${encodeURIComponent("YOUR_IMAGE_UPLOAD_URL")}`;
 
       // Open the Twitter share URL in a new window
       window.open(twitterUrl, "_blank");
@@ -58,23 +69,30 @@ function App() {
 
   return (
     <div className="background-container">
-      <div className="background-container-inner">
-        <img src={background} alt="background" className="background-image" />
-        <img src={currentImage} alt="random" className="random-image" />
-        <textarea
-          value={editableText}
-          placeholder="Write your Meme Text..."
-          onChange={(e) => setEditableText(e.target.value)}
-          className="editable-textarea"
-          maxLength={150} // Limit to 150 characters
-        />
-        <button className="top-left-button" onClick={handleHomeClick}></button>
-        <button
-          className="top-right-button"
-          onClick={handleShareClick}
-        ></button>
-        <button className="spin-button" onClick={handleSpinClick}></button>
-      </div>
+      {loading ? (
+        <div className="loading-spinner"></div> // Show loading spinner
+      ) : (
+        <div className="background-container-inner">
+          <img src={background} alt="background" className="background-image" />
+          <img src={currentImage} alt="random" className="random-image" />
+          <textarea
+            value={editableText}
+            placeholder="Write your Meme Text..."
+            onChange={(e) => setEditableText(e.target.value)}
+            className="editable-textarea"
+            maxLength={150} // Limit to 150 characters
+          />
+          <button
+            className="top-left-button"
+            onClick={handleHomeClick}
+          ></button>
+          <button
+            className="top-right-button"
+            onClick={handleShareClick}
+          ></button>
+          <button className="spin-button" onClick={handleSpinClick}></button>
+        </div>
+      )}
       {/* Capture div for generating the image */}
       <div
         id="capture"
@@ -86,7 +104,7 @@ function App() {
       >
         <img src={background} alt="background" className="background-image" />
         <img src={currentImage} alt="random" className="random-image" />
-        <div className="editable-textarea">{editableText}</div>
+        <div>{editableText}</div>
       </div>
     </div>
   );
